@@ -1,0 +1,67 @@
+* {
+    box-sizing: border-box;
+}
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+
+.page {
+  min-height: 100%;
+  display: flex;
+  gap: 16px;
+  padding: 16px;
+  align-items: center;
+  justify-content: center;
+}
+
+.preview {
+  border: 1px solid red;
+  display: grid;
+  place-items: center;
+  min-width: 220px;
+}
+
+.progress-host {
+  display: grid;
+  place-items: center;
+}
+
+.controls {
+  display: grid;
+  gap: 12px;
+  min-width: 180px;
+}
+
+.control {
+  display: grid;
+  gap: 6px;
+}
+
+.control_label {
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+.control_input {
+  height: 36px;
+  padding: 0 10px;
+  font-size: 16px;
+}
+
+.control-toggle {
+  grid-template-columns: 1fr auto;
+  align-items: center;
+}
+
+.control_toggle {
+  width: 20px;
+  height: 20px;
+}
+
+/* базовая адаптация — дальше улучшим */
+@media (orientation: portrait) {
+  .page { flex-direction: column; }
+}

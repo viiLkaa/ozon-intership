@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progress</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./src/progressBar/progress.css">
+
+
+</head>
+<body>
+    <div class="page">
+        <section class="preview">
+            <div id="progressHost" class="progress-host"></div>
+        </section>
+
+        <section class="controls">
+            <label class="control">
+                <span class="control_label">Value</span>
+                <input
+                id="valueInput"
+                type="number"
+                placeholder="0-100"
+                />
+            </label>
+
+            <label class="control control-toggle">
+                <span class="control_label">Animate</span>
+                <input
+                id="animateToggle"
+                class="control_toggle"
+                type="checkbox"
+                />
+            </label>
+
+            <label class="control control-toggle">
+                <span class="control_label">Hide</span>
+                <input
+                id="hideToggle"
+                class="control_toggle"
+                type="checkbox"
+                />
+            </label>
+        </section>
+    </div>
+    <script type="module" src="./src/app.js"></script>
+</body>
+</html>
