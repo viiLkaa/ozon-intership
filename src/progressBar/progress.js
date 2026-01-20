@@ -28,8 +28,10 @@ export class Progress {
 
     this.root.innerHTML = `
       <svg class="progress_svg" viewBox="0 0 ${this.size} ${this.size}" aria-label="Progress">
-        <circle class="progress_track" cx="${cx}" cy="${cy}" r="${r}"></circle>
-        <circle class="progress_arc" cx="${cx}" cy="${cy}" r="${r}"></circle>
+        <g class="progress_rotation">
+            <circle class="progress_track" cx="${cx}" cy="${cy}" r="${r}"></circle>
+            <circle class="progress_arc" cx="${cx}" cy="${cy}" r="${r}"></circle>
+        </g>
       </svg>
     `;
 
@@ -46,8 +48,8 @@ export class Progress {
     this.render();
   }
 
-  setAnimated(isOn) {
-    this.animated = Boolean(isOn);
+  setAnimated(isAnimated) {
+    this.animated = Boolean(isAnimated);
     this.applyState();
   }
 
