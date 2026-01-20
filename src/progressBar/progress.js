@@ -64,5 +64,6 @@ export class Progress {
   render() {
     if (!this.arcEl) return;
     this.arcEl.style.strokeDashoffset = `${valueToDashOffset(this.value, this.length)}`;
+    this.render();
   }
 }

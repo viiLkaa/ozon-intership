@@ -3,7 +3,6 @@
   height: 160px;
   display: grid;
   place-items: center;
-  border: 1px solid rgba(0,0,0,0.15);
   border-radius: 12px;
   user-select: none;
 }
@@ -33,9 +32,10 @@
 .progress_arc {
   stroke: #1e66ff;
   stroke-linecap: butt;
+  transition: stroke-dashoffset 0.2s ease, opacity 150ms ease;
 }
 
-.progress--animated {
+.progress-animated {
 }
 
 
