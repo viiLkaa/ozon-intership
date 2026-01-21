@@ -1,67 +1,204 @@
-* {
-    box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 html, body {
   height: 100%;
   margin: 0;
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
 }
 
-
 .page {
-  min-height: 100%;
-  display: flex;
-  gap: 16px;
-  padding: 16px;
-  align-items: center;
-  justify-content: center;
+
+  /*border: 1px solid red;*/
+
+  min-height: 100vh;
+  padding: clamp(16px, 3vw, 32px);
+
+  width: min(800px, 100%);
+  margin: 0 auto;
+
+  display: grid;
+  align-content: center;
+
+  gap: clamp(20px, 3vw, 40px);
+}
+
+.page-title {
+  grid-column: 1 / -1;
+  align-self: start;
+  width: 100%;
+  text-align: left;
+
+  font-weight: 600;
+  line-height: 1.2;
+  font-size: clamp(18px, 2.2vw, 28px);
+  margin: 0 0 clamp(8px, 1.8vw, 20px) 0;
+}
+
+
+@media (orientation: landscape) and (min-width: 600px) {
+  .page {
+    grid-template-columns: 1fr 360px;
+    align-items: center;
+  }
+}
+
+@media (orientation: portrait), (max-width: 599px) {
+  .page {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: clamp(18px, 3vw, 28px);
+  }
+
 }
 
 .preview {
-  border: 1px solid red;
+
+  /*border: 1px solid blue;*/
+
   display: grid;
   place-items: center;
-  min-width: 220px;
+  width: 100%;
+  min-height: clamp(240px, 40vh, 420px)
 }
 
+
 .progress-host {
+
+  /*border: 1px solid blue;*/
+  width: min(420px, 70vw);
+  aspect-ratio: 1 / 1;
   display: grid;
   place-items: center;
+
 }
 
 .controls {
+  width: 100%;
+  max-width: 320px;
   display: grid;
-  gap: 12px;
-  min-width: 180px;
+  gap: clamp(16px, 3vw, 24px);
 }
 
-.control {
+.row{
   display: grid;
-  gap: 6px;
-}
-
-.control_label {
-  font-size: 14px;
-  opacity: 0.8;
-}
-
-.control_input {
-  height: 36px;
-  padding: 0 10px;
-  font-size: 16px;
-}
-
-.control-toggle {
-  grid-template-columns: 1fr auto;
+  grid-template-columns: auto 1fr;
   align-items: center;
+  column-gap: clamp(16px, 2.4vw, 28px);
 }
 
-.control_toggle {
-  width: 20px;
-  height: 20px;
+.row_label {
+  font-size: clamp(18px, 2.3vw, 30px);
+  font-weight: 600;
+  line-height: 1.1;
 }
 
-/* базовая адаптация — дальше улучшим */
-@media (orientation: portrait) {
-  .page { flex-direction: column; }
+.pill {
+
+  border: 1px solid red;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: clamp(7px, 9vw, 96px);
+  height: clamp(44px, 6vw, 66px);
+
+  border: 2px solid #111;
+  border-radius: 999px;
+  background: #fff;
+}
+
+.pill_input {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  outline: 0;
+  background: transparent;
+
+  text-align: center;
+  font-size: clamp(18px, 2.2vw, 30px);
+  font-weight: 600;
+  line-height: 1;
+
+  padding: 0 10px;
+}
+
+.pill_input::placeholder {
+  color: rgba(0, 0, 0, 0.35);
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+
+  width: clamp(64px, 9vw, 96px);
+  height: clamp(36px, 5vw, 56px);
+}
+
+.switch input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  margin: 0;
+  cursor: pointer;
+}
+
+.switch_ui {
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  background: #dbe3ee;
+  transition: background 150ms ease;
+}
+
+.switch_ui::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: clamp(4px, 0.6vw, 6px);
+  transform: translateY(-50%);
+
+  width: clamp(28px, 4vw, 42px);
+  height: clamp(28px, 4vw, 42px);
+
+  border-radius: 50%;
+  background: #fff;
+
+  transition: left 150ms ease, right 150ms ease;
+}
+
+.switch input:checked + .switch_ui {
+  background: #6734eb;
+}
+
+.switch input:checked + .switch_ui::after {
+  left: auto;
+  right: clamp(4px, 0.6vw, 6px);
+}
+
+.switch input:focus-visible + .switch_ui {
+  outline: 3px solid rgba(30, 102, 255, 0.35);
+  outline-offset: 3px;
+}
+
+@media (max-width: 360px) {
+  .controls {
+    max-width: 340px;
+  }
+  .progress-host {
+    width: min(360px, 86vw);
+  }
+}
+
+
+/*уберем стрелочки у поля ввода*/
+
+.pill__input::-webkit-outer-spin-button,
+.pill__input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.pill__input {
+  -moz-appearance: textfield; /* Firefox */
+  appearance: textfield;
 }

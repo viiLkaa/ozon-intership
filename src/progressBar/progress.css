@@ -1,6 +1,6 @@
 .progress {
-  width: 160px;
-  height: 160px;
+  width: 100%;
+  height: 100%;
   display: grid;
   place-items: center;
   border-radius: 12px;
@@ -22,11 +22,10 @@
     transform: rotate(-90deg);
 }
 
-.progress_track,
-.progress_arc
+.progress_track,.progress_arc
 {
   fill: none;
-  stroke-width: 12;
+  stroke-width: 15;
 }
 
 .progress_track {
@@ -34,7 +33,7 @@
 }
 
 .progress_arc {
-  stroke: #1e66ff;
+  stroke: #6734eb;
   stroke-linecap: butt;
   transition: stroke-dashoffset 0.2s ease, opacity 150ms ease;
 }
@@ -45,5 +44,5 @@
 }
 
 .progress-animated .progress_rotation {
-  animation: spinning 2s linear infinite;
+  animation: spinning 5s linear infinite;
 }

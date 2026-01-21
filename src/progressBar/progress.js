@@ -18,7 +18,7 @@ export class Progress {
     this.root.className = "progress";
 
     this.size = 160;
-    this.strokeWidth = 12;
+    this.strokeWidth = 15;
 
     const r = (this.size / 2) - (this.strokeWidth / 2);
     const cx = this.size / 2;

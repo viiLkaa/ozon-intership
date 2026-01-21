@@ -11,37 +11,47 @@
 </head>
 <body>
     <div class="page">
+        <h1 class="page-title">Progress</h1>
         <section class="preview">
             <div id="progressHost" class="progress-host"></div>
         </section>
 
-        <section class="controls">
-            <label class="control">
-                <span class="control_label">Value</span>
-                <input
-                id="valueInput"
-                type="number"
-                placeholder="0-100"
-                />
-            </label>
+        <section class="controls" aria-label="Controls">
+            <div class="row row-value">
+                <label class="pill" aria-label="Value">
+                    <input
+                    id="valueInput"
+                    class="pill_input"
+                    type="text"
+                    inputmode="numeric"
+                    placeholder="0"
+                    />
+                </label>
+                <div class="row_label">Value</div>
+            </div>
 
-            <label class="control control-toggle">
-                <span class="control_label">Animate</span>
-                <input
-                id="animateToggle"
-                class="control_toggle"
-                type="checkbox"
-                />
-            </label>
+            <div class="row">
+                <label class="switch">
+                    <input
+                        id="animateToggle"
+                        type="checkbox"
+                    />
+                    <span class="switch_ui" aria-hidden="true"></span>
+                </label>
+                <div class="row_label">Animate </div>
+            </div>
 
-            <label class="control control-toggle">
-                <span class="control_label">Hide</span>
-                <input
-                id="hideToggle"
-                class="control_toggle"
-                type="checkbox"
-                />
-            </label>
+            <div class="row">
+                <label class="switch">
+                    <input
+                        id="hideToggle"
+                        class="control_toggle"
+                        type="checkbox"
+                    />
+                    <span class="switch_ui" aria-hidden="true"></span>
+                </label>
+                <div class="row_label">Hide</div>
+            </div>
         </section>
     </div>
     <script type="module" src="./src/app.js"></script>
