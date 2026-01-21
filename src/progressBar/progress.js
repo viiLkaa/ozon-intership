@@ -5,7 +5,7 @@ import { clampValue, circleLength, valueToDashOffset } from "./mathing.js";
 export class Progress {
   constructor(container, options = {}) {
     if (!(container instanceof HTMLElement)) {
-      throw new TypeError("Progress: container must be an HTMLElement");
+      throw new TypeError("container must be an HTMLElement");
     }
 
     this.container = container;
