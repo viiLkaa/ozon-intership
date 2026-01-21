@@ -5,7 +5,7 @@ import {Progress} from "./progressBar/progress.js";
 const host = document.getElementById("progressHost");
 const valueInput = document.getElementById("valueInput");
 const animateToggle = document.getElementById("animateToggle");
-const hiddeToggle = document.getElementById("hiddeToggle");
+const hideToggle = document.getElementById("hideToggle");
 
 const progress = new Progress(host, {value:0});
 
